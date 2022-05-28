@@ -59,7 +59,7 @@ const Navbar = () => {
 
   const handleActiveMenu = () => setActiveMenu(!activeMenu);
   return (
-    <div className="flex justify-between p-2 md:mx-6 relative">
+    <div className="flex justify-between p-2 md:ml-6 md:mr-6 relative">
       <NavButton
         title="Menu"
         customFunc={handleActiveMenu}
@@ -81,8 +81,8 @@ const Navbar = () => {
           color={currentColor}
         />
         <NavButton
-          title="Notifications"
-          dotColor="#03C9D7"
+          title="Notification"
+          dotColor="rgb(254, 201, 15)"
           customFunc={() => handleClick("notification")}
           icon={<RiNotification3Line />}
           color={currentColor}

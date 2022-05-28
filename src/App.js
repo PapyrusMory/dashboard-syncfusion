@@ -20,6 +20,7 @@ import {
   ColorMapping,
   Editor,
   Line,
+  Cart,
 } from "./pages";
 
 import { useStateContext } from "./contexts/ContextProvider";
@@ -81,6 +82,7 @@ const App = () => {
                 <Route path="/orders" element={<Orders />} />
                 <Route path="/employees" element={<Employees />} />
                 <Route path="/customers" element={<Customers />} />
+                <Route path="/cart" element={<Cart />} />
 
                 {/* Apps */}
                 <Route path="/kanban" element={<Kanban />} />
