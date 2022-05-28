@@ -20,9 +20,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, "../build")));
+app.use(express.static(path.join(__dirname, "/build")));
 app.get("*", (req, res) =>
-  res.sendFile(path.join(__dirname, "../build/index.html"))
+  res.sendFile(path.join(__dirname, "/build/index.html"))
 );
 
 app.use((err, req, res, next) => {
