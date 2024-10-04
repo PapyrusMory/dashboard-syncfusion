@@ -1,35 +1,36 @@
-import express from "express";
-import path from "path";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
+import express from 'express'
+import path from 'path'
+import mongoose from 'mongoose'
+import dotenv from 'dotenv'
 
-dotenv.config();
+mongoose.set('strictQuery', true)
+dotenv.config()
 
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
-    console.log("Connected to DB");
+    console.log('Connected to DB')
   })
   .catch((err) => {
-    console.log(err.message);
-  });
+    console.log(err.message)
+  })
 
-const app = express();
+const app = express()
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
-const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, "/build")));
-app.get("*", (req, res) =>
-  res.sendFile(path.join(__dirname, "/build/index.html"))
-);
+const __dirname = path.resolve()
+app.use(express.static(path.join(__dirname, '/build')))
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, '/build/index.html'))
+)
 
 app.use((err, req, res, next) => {
-  res.status(500).send({ message: err.message });
-});
+  res.status(500).send({ message: err.message })
+})
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5017
 app.listen(port, () => {
-  console.log(`Serve at http://localhost:${port}`);
-});
+  console.log(`Serve at http://localhost:${port}`)
+})
